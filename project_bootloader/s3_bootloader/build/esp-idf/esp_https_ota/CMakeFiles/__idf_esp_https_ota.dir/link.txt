@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libesp_https_ota.a CMakeFiles/__idf_esp_https_ota.dir/src/esp_https_ota.c.obj CMakeFiles/__idf_esp_https_ota.dir/__/__/esp_err_codes/esp_https_ota_esp_err_codes.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libesp_https_ota.a

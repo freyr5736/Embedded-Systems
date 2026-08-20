@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libesp_driver_sdm.a CMakeFiles/__idf_esp_driver_sdm.dir/src/sdm.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libesp_driver_sdm.a

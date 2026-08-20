@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libesp_hal_dma.a CMakeFiles/__idf_esp_hal_dma.dir/gdma_hal_top.c.obj CMakeFiles/__idf_esp_hal_dma.dir/esp32s3/gdma_periph.c.obj CMakeFiles/__idf_esp_hal_dma.dir/gdma_hal_ahb_v1.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libesp_hal_dma.a

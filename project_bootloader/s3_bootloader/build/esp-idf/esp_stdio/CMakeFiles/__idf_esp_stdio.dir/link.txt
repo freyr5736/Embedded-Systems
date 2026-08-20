@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libesp_stdio.a CMakeFiles/__idf_esp_stdio.dir/stdio_port.c.obj CMakeFiles/__idf_esp_stdio.dir/stdio_simple.c.obj CMakeFiles/__idf_esp_stdio.dir/stdio_syscalls_simple.c.obj CMakeFiles/__idf_esp_stdio.dir/stdio_vfs.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libesp_stdio.a

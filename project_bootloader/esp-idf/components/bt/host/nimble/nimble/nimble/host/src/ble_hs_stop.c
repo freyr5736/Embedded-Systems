@@ -1,0 +1,444 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+#include <assert.h>
+#include "sysinit/sysinit.h"
+#include "syscfg/syscfg.h"
+#include "modlog/modlog.h"
+#include "ble_hs_priv.h"
+#include "host/ble_hs_stop.h"
+#include "nimble/nimble_npl.h"
+#include "host/ble_hs_log.h"
+#ifndef MYNEWT
+#include "nimble/nimble_port.h"
+#endif
+
+#define BLE_HOST_STOP_TIMEOUT_MS MYNEWT_VAL(BLE_HS_STOP_ON_SHUTDOWN_TIMEOUT)
+
+SLIST_HEAD(ble_hs_stop_listener_slist, ble_hs_stop_listener);
+
+#if MYNEWT_VAL(BLE_STATIC_TO_DYNAMIC)
+#include "esp_nimble_mem.h"
+
+/**
+ * Global context for Host stop procedure.
+ * Holds listener list, GAP listener, connection count, and timeout callout.
+ */
+struct ble_hs_stop_ctx {
+    struct ble_gap_event_listener gap_listener;      /* GAP stop listener */
+    struct ble_hs_stop_listener_slist listeners;     /* Registered stop listeners */
+    uint8_t conn_cnt;                                /* Number of active connections */
+    struct ble_npl_callout terminate_tmo;            /* Stop termination timeout */
+};
+
+static struct ble_hs_stop_ctx *ble_hs_stop_ctx;
+
+/* Macros for cleaner access */
+#define ble_hs_stop_gap_listener     (ble_hs_stop_ctx->gap_listener)
+#define ble_hs_stop_listeners        (ble_hs_stop_ctx->listeners)
+#define ble_hs_stop_conn_cnt         (ble_hs_stop_ctx->conn_cnt)
+#define ble_hs_stop_terminate_tmo    (ble_hs_stop_ctx->terminate_tmo)
+#else
+static struct ble_gap_event_listener ble_hs_stop_gap_listener;
+
+/**
+ * List of stop listeners.  These are notified when a stop procedure completes.
+ */
+static struct ble_hs_stop_listener_slist ble_hs_stop_listeners;
+
+/* Track number of connections */
+static uint8_t ble_hs_stop_conn_cnt;
+
+static struct ble_npl_callout ble_hs_stop_terminate_tmo;
+#endif
+
+/** List of listeners being notified; guarded by ble_hs_stop_notifying. */
+static struct ble_hs_stop_listener_slist ble_hs_stop_notify_list;
+static bool ble_hs_stop_notifying;
+
+static int
+ble_hs_stop_hci_reset(void)
+{
+    return ble_hs_hci_cmd_tx(BLE_HCI_OP(BLE_HCI_OGF_CTLR_BASEBAND, BLE_HCI_OCF_CB_RESET),
+                             NULL, 0, NULL, 0);
+}
+
+/**
+ * Called when a stop procedure has completed.
+ */
+static void
+ble_hs_stop_done(int status)
+{
+    struct ble_hs_stop_listener_slist notify_list;
+    struct ble_hs_stop_listener *listener;
+    struct ble_hs_stop_listener *l;
+    int rc;
+
+    ble_npl_callout_stop(&ble_hs_stop_terminate_tmo);
+
+    ble_hs_lock();
+
+    if (ble_hs_enabled_state != BLE_HS_ENABLED_STATE_STOPPING) {
+        ble_hs_unlock();
+        return;
+    }
+
+    ble_hs_stop_notify_list = ble_hs_stop_listeners;
+    SLIST_INIT(&ble_hs_stop_listeners);
+    ble_hs_stop_notifying = true;
+
+    ble_hs_unlock();
+
+    ble_gap_event_listener_unregister(&ble_hs_stop_gap_listener);
+
+    /* Reset the controller while still in STOPPING state so the HCI ACK is
+     * not dropped by host_rcv_pkt (which drops packets when state == OFF). */
+    rc = ble_hs_stop_hci_reset();
+    if (rc != 0) {
+        BLE_HS_LOG(ERROR, "ble_hs_stop: failed to reset controller; rc=%d\n", rc);
+    }
+
+    /* Mark host as OFF and absorb any listeners registered during the HCI
+     * reset before notifying waiters. */
+    ble_hs_lock();
+    ble_hs_enabled_state = BLE_HS_ENABLED_STATE_OFF;
+    while ((listener = SLIST_FIRST(&ble_hs_stop_listeners)) != NULL) {
+        bool already;
+
+        SLIST_REMOVE_HEAD(&ble_hs_stop_listeners, link);
+        already = false;
+        SLIST_FOREACH(l, &ble_hs_stop_notify_list, link) {
+            if (l == listener) {
+                already = true;
+                break;
+            }
+        }
+        if (!already) {
+            SLIST_INSERT_HEAD(&ble_hs_stop_notify_list, listener, link);
+        }
+    }
+    ble_hs_stop_notifying = false;
+    notify_list = ble_hs_stop_notify_list;
+    SLIST_INIT(&ble_hs_stop_notify_list);
+    ble_hs_unlock();
+
+    /* Clear advertising, scanning and connection states. */
+    if (status != 0) {
+        if (status == BLE_HS_ETIMEOUT) {
+            ble_gap_reset_state(BLE_ERR_CONN_SPVN_TMO);
+        } else {
+            ble_gap_reset_state(BLE_ERR_REM_USER_CONN_TERM);
+        }
+    } else {
+        ble_gap_reset_state(0);
+    }
+
+    /* After LL reset the controller loses its random address */
+    ble_hs_id_reset();
+
+    SLIST_FOREACH(listener, &notify_list, link) {
+        listener->fn(status, listener->arg);
+    }
+}
+
+#if MYNEWT_VAL(BLE_PERIODIC_ADV)
+/**
+ * Terminates all active periodic sync handles
+ *
+ * If there are no active periodic sync handles, signals completion of the
+ * close procedure.
+ */
+static int
+ble_hs_stop_terminate_all_periodic_sync(void)
+{
+    int rc = 0;
+    struct ble_hs_periodic_sync *psync;
+    uint16_t sync_handle;
+
+    /* Cancel any in-progress sync creation to avoid BLE_HS_EBUSY errors
+     * and prevent a memory leak of the in-progress psync object.
+     */
+    ble_gap_periodic_adv_sync_create_cancel();
+
+    while (1) {
+        /* Hold the lock while reading sync_handle to avoid a use-after-free:
+         * ble_hs_periodic_sync_first() releases its internal lock before
+         * returning, so the psync pointer could be freed concurrently by an
+         * incoming 'sync lost' event before we dereference it.
+         */
+        ble_hs_lock();
+        psync = ble_hs_periodic_sync_first_locked();
+        if (psync == NULL) {
+            ble_hs_unlock();
+            break;
+        }
+        sync_handle = psync->sync_handle;
+        ble_hs_unlock();
+
+        /* Terminate sync command waits a command complete event, so there
+         * is no need to wait for GAP event, as the calling thread will be
+         * blocked on the hci semaphore until the command complete is received.
+         *
+         * Also, once the sync is terminated, the psync will be freed and
+         * removed from the list such that the next iteration yields the next
+         * psync handle.  Return on errors; the caller (ble_hs_stop) will
+         * report the failure via ble_hs_stop_done.
+         */
+        rc = ble_gap_periodic_adv_sync_terminate(sync_handle);
+        if (rc != 0 && rc != BLE_HS_ENOTCONN) {
+            BLE_HS_LOG(ERROR, "failed to terminate periodic sync=0x%04x, rc=%d\n",
+                       sync_handle, rc);
+            return rc;
+        }
+    }
+
+    return 0;
+}
+#endif
+
+/**
+ * Terminates connection.
+ */
+static int
+ble_hs_stop_terminate_conn(struct ble_hs_conn *conn, void *arg)
+{
+    int rc;
+
+    /* Always count the connection regardless of whether termination succeeded.
+     * If termination fails, the connection remains active and may still
+     * generate a DISCONNECT event (peer-initiated or via the HCI reset).
+     * Not counting it would cause a premature ble_hs_stop_done(0) when other
+     * connections disconnect and decrement the counter below zero conceptually.
+     */
+    ble_hs_stop_conn_cnt++;
+    rc = ble_gap_terminate_with_conn(conn, BLE_ERR_REM_USER_CONN_TERM);
+    if (rc != 0 && rc != BLE_HS_EALREADY) {
+        BLE_HS_LOG(ERROR, "ble_hs_stop: failed to terminate connection; rc=%d\n", rc);
+    }
+
+    return 0;
+}
+
+/**
+ * This is called when host graceful disconnect timeout fires. That means some devices
+ * are out of range and disconnection completed did no happen yet.
+ */
+static void
+ble_hs_stop_terminate_timeout_cb(struct ble_npl_event *ev)
+{
+    BLE_HS_LOG(ERROR, "ble_hs_stop_terminate_timeout_cb,"
+                      "%d connection(s) still up \n", ble_hs_stop_conn_cnt);
+
+    ble_hs_stop_done(BLE_HS_ETIMEOUT);
+}
+
+/**
+ * GAP event callback.  Listens for connection termination and then terminates
+ * the next one.
+ *
+ * If there are no connections, signals completion of the stop procedure.
+ */
+static int
+ble_hs_stop_gap_event(struct ble_gap_event *event, void *arg)
+{
+    /* Only process connection termination events. */
+    if (event->type == BLE_GAP_EVENT_DISCONNECT ||
+        event->type == BLE_GAP_EVENT_TERM_FAILURE) {
+        ble_hs_lock();
+        if (ble_hs_stop_conn_cnt > 0) {
+            ble_hs_stop_conn_cnt--;
+
+            if (ble_hs_stop_conn_cnt == 0) {
+                ble_hs_unlock();
+                ble_hs_stop_done(0);
+                return 0;
+            }
+        }
+        ble_hs_unlock();
+    }
+
+    return 0;
+}
+
+/**
+ * Registers a listener to listen for completion of the current stop procedure.
+ */
+static void
+ble_hs_stop_register_listener(struct ble_hs_stop_listener *listener,
+                              ble_hs_stop_fn *fn, void *arg)
+{
+    struct ble_hs_stop_listener *l;
+
+    BLE_HS_DBG_ASSERT(fn != NULL);
+
+    listener->fn = fn;
+    listener->arg = arg;
+
+    /* Guard against duplicate registration which would corrupt the list. */
+    SLIST_FOREACH(l, &ble_hs_stop_listeners, link) {
+        if (l == listener) {
+            return;
+        }
+    }
+    if (ble_hs_stop_notifying) {
+        SLIST_FOREACH(l, &ble_hs_stop_notify_list, link) {
+            if (l == listener) {
+                return;
+            }
+        }
+    }
+    SLIST_INSERT_HEAD(&ble_hs_stop_listeners, listener, link);
+}
+
+static int
+ble_hs_stop_begin(struct ble_hs_stop_listener *listener,
+                   ble_hs_stop_fn *fn, void *arg)
+{
+    switch (ble_hs_enabled_state) {
+    case BLE_HS_ENABLED_STATE_ON:
+        /* Host is enabled; proceed with the stop procedure. */
+        ble_hs_enabled_state = BLE_HS_ENABLED_STATE_STOPPING;
+        if (listener != NULL) {
+            ble_hs_stop_register_listener(listener, fn, arg);
+        }
+
+        /* Put the host in the "stopping" state and ensure the host timer is
+         * not running.
+         */
+        ble_hs_timer_resched();
+        return 0;
+
+    case BLE_HS_ENABLED_STATE_STOPPING:
+        /* A stop procedure is already in progress.  Just listen for the
+         * procedure's completion.
+         */
+        if (listener != NULL) {
+            ble_hs_stop_register_listener(listener, fn, arg);
+        }
+        BLE_HS_LOG(ERROR, "%s rc=%d\n", __func__, BLE_HS_EBUSY);
+        return BLE_HS_EBUSY;
+
+    case BLE_HS_ENABLED_STATE_OFF:
+        /* Host already stopped. */
+        return BLE_HS_EALREADY;
+
+    default:
+        assert(0);
+        BLE_HS_LOG(ERROR, "%s rc=%d\n", __func__, BLE_HS_EUNKNOWN);
+        return BLE_HS_EUNKNOWN;
+    }
+}
+
+int
+ble_hs_stop(struct ble_hs_stop_listener *listener,
+            ble_hs_stop_fn *fn, void *arg)
+{
+    int rc;
+
+    ble_hs_lock();
+    rc = ble_hs_stop_begin(listener, fn, arg);
+    ble_hs_unlock();
+
+    switch (rc) {
+    case 0:
+        break;
+
+    case BLE_HS_EBUSY:
+        return 0;
+
+    default:
+        return rc;
+    }
+
+    /* Abort all active GAP procedures. */
+    ble_gap_preempt();
+    ble_gap_preempt_done();
+
+#if MYNEWT_VAL(BLE_PERIODIC_ADV)
+    /* Check for active periodic sync first and terminate it all */
+    rc = ble_hs_stop_terminate_all_periodic_sync();
+    if (rc != 0) {
+        ble_hs_stop_done(rc);
+        return rc;
+    }
+#endif
+
+    rc = ble_gap_event_listener_register(&ble_hs_stop_gap_listener,
+                                         ble_hs_stop_gap_event, NULL);
+    if (rc != 0) {
+        ble_hs_stop_done(rc);
+        return rc;
+    }
+
+    ble_hs_lock();
+    ble_hs_stop_conn_cnt = 0;
+    ble_hs_conn_foreach(ble_hs_stop_terminate_conn, NULL);
+    uint8_t cnt = ble_hs_stop_conn_cnt;
+    if (cnt > 0) {
+        ble_npl_callout_reset(&ble_hs_stop_terminate_tmo,
+                              ble_npl_time_ms_to_ticks32(BLE_HOST_STOP_TIMEOUT_MS));
+    }
+    ble_hs_unlock();
+
+    if (cnt == 0) {
+        /* No connections, stop is completed */
+        ble_hs_stop_done(0);
+    }
+
+    return 0;
+}
+
+void
+ble_hs_stop_init(void)
+{
+#if MYNEWT_VAL(BLE_STATIC_TO_DYNAMIC)
+    if (!ble_hs_stop_ctx) {
+        ble_hs_stop_ctx = nimble_platform_mem_calloc(1, sizeof(*ble_hs_stop_ctx));
+        if (!ble_hs_stop_ctx) {
+            MODLOG_DFLT(ERROR, "Failed to allocate memory for ble_hs_stop_ctx\n");
+            abort();
+        }
+    }
+#endif
+
+#ifdef MYNEWT
+    ble_npl_callout_init(&ble_hs_stop_terminate_tmo, ble_npl_eventq_dflt_get(),
+                         ble_hs_stop_terminate_timeout_cb, NULL);
+#else
+    int rc;
+
+    rc = ble_npl_callout_init(&ble_hs_stop_terminate_tmo, nimble_port_get_dflt_eventq(),
+                              ble_hs_stop_terminate_timeout_cb, NULL);
+    SYSINIT_PANIC_ASSERT(rc == 0);
+#endif
+}
+
+void
+ble_hs_stop_deinit(void)
+{
+#if MYNEWT_VAL(BLE_STATIC_TO_DYNAMIC)
+    if (ble_hs_stop_ctx) {
+        ble_npl_callout_deinit(&ble_hs_stop_terminate_tmo);
+        nimble_platform_mem_free(ble_hs_stop_ctx);
+        ble_hs_stop_ctx = NULL;
+    }
+#else
+    ble_npl_callout_deinit(&ble_hs_stop_terminate_tmo);
+#endif
+}

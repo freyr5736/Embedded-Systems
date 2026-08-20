@@ -1,0 +1,38 @@
+Command: make -j 14 all
+make[1]: Warning: File 'CMakeFiles/Makefile2' has modification time 0.82 s in the future
+make[2]: Warning: File 'esp-idf/partition_table/CMakeFiles/partition_table_bin.dir/progress.make' has modification time 0.71 s in the future
+make[2]: Warning: File 'esp-idf/ulp/CMakeFiles/__idf_ulp.dir/progress.make' has modification time 0.69 s in the future
+make[2]: Warning: File 'esp-idf/mbedtls/CMakeFiles/custom_bundle.dir/progress.make' has modification time 0.71 s in the future
+make[2]: Warning: File 'esp-idf/esp_system/CMakeFiles/memory_ld_in_preprocess.dir/progress.make' has modification time 0.71 s in the future
+make[2]: Warning: File 'esp-idf/esp_system/CMakeFiles/sections_ld_in_preprocess.dir/progress.make' has modification time 0.71 s in the future
+make[2]: Warning: File 'CMakeFiles/_project_elf_src.dir/progress.make' has modification time 0.69 s in the future
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+make[2]: Warning: File 'esp-idf/partition_table/CMakeFiles/partition_table_bin.dir/progress.make' has modification time 0.69 s in the future
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+make[2]: Warning: File 'CMakeFiles/_project_elf_src.dir/progress.make' has modification time 0.66 s in the future
+make[2]: Warning: File 'esp-idf/ulp/CMakeFiles/__idf_ulp.dir/progress.make' has modification time 0.66 s in the future
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+make[2]: Warning: File 'esp-idf/esp_system/CMakeFiles/sections_ld_in_preprocess.dir/progress.make' has modification time 0.67 s in the future
+make[2]: Warning: File 'esp-idf/esp_system/CMakeFiles/memory_ld_in_preprocess.dir/progress.make' has modification time 0.67 s in the future
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+make[2]: Warning: File 'esp-idf/mbedtls/CMakeFiles/custom_bundle.dir/progress.make' has modification time 0.66 s in the future
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+make[2]: Warning: File 'esp-idf/lwip/CMakeFiles/__idf_lwip.dir/progress.make' has modification time 0.5 s in the future
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+make[2]: Warning: File 'esp-idf/lwip/CMakeFiles/__idf_lwip.dir/progress.make' has modification time 0.46 s in the future
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+NOTE: Kconfig parser version: 1
+NOTE: Kconfig defaults policy: use sdkconfig
+NOTE: Status: Finished successfully
+/home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/xtensa-esp-elf/bin/ld: warning: cannot find entry symbol call_start_cpu0; not setting start address
+NOTE: /home/freyr5736/coding/esp32/esp-idf/components/bt/host/nimble/Kconfig.in:1461: BT_NIMBLE_MESH_PROVISIONER: 'default 0' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: /home/freyr5736/coding/esp32/esp-idf/components/fatfs/Kconfig:240: FATFS_PRINT_LLI: 'default 0' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: /home/freyr5736/coding/esp32/esp-idf/components/fatfs/Kconfig:245: FATFS_PRINT_FLOAT: 'default 0' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+make[1]: warning:  Clock skew detected.  Your build may be incomplete.

@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libextras.a CMakeFiles/extras.dir/lmots.c.obj CMakeFiles/extras.dir/lms.c.obj CMakeFiles/extras.dir/md.c.obj CMakeFiles/extras.dir/nist_kw.c.obj CMakeFiles/extras.dir/pk.c.obj CMakeFiles/extras.dir/pk_ecc.c.obj CMakeFiles/extras.dir/pk_rsa.c.obj CMakeFiles/extras.dir/pk_wrap.c.obj CMakeFiles/extras.dir/pkparse.c.obj CMakeFiles/extras.dir/pkwrite.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libextras.a

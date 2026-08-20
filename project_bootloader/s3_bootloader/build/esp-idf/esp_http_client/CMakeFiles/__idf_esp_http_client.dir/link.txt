@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libesp_http_client.a CMakeFiles/__idf_esp_http_client.dir/esp_http_client.c.obj CMakeFiles/__idf_esp_http_client.dir/lib/http_auth.c.obj CMakeFiles/__idf_esp_http_client.dir/lib/http_header.c.obj CMakeFiles/__idf_esp_http_client.dir/lib/http_utils.c.obj CMakeFiles/__idf_esp_http_client.dir/__/__/esp_err_codes/esp_http_client_esp_err_codes.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libesp_http_client.a

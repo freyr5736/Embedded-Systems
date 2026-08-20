@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libesp_driver_sdspi.a CMakeFiles/__idf_esp_driver_sdspi.dir/src/sdspi_crc.c.obj CMakeFiles/__idf_esp_driver_sdspi.dir/src/sdspi_host.c.obj CMakeFiles/__idf_esp_driver_sdspi.dir/src/sdspi_transaction.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libesp_driver_sdspi.a

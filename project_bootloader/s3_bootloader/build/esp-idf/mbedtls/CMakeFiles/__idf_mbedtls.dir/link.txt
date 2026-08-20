@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libmbedtls.a CMakeFiles/__idf_mbedtls.dir/port/esp_mem.c.obj CMakeFiles/__idf_mbedtls.dir/port/psa_crypto_storage/esp_psa_key_file.c.obj CMakeFiles/__idf_mbedtls.dir/esp_crt_bundle/esp_crt_bundle.c.obj CMakeFiles/__idf_mbedtls.dir/__/__/x509_crt_bundle.S.obj
+xtensa-esp32s3-elf-gcc-ranlib libmbedtls.a

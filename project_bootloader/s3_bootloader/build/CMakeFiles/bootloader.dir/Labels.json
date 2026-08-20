@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/freyr5736/coding/esp32/s3_bootloader/build/CMakeFiles/bootloader"
+		},
+		{
+			"file" : "/home/freyr5736/coding/esp32/s3_bootloader/build/CMakeFiles/bootloader.rule"
+		},
+		{
+			"file" : "/home/freyr5736/coding/esp32/s3_bootloader/build/CMakeFiles/bootloader-complete.rule"
+		},
+		{
+			"file" : "/home/freyr5736/coding/esp32/s3_bootloader/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
+		},
+		{
+			"file" : "/home/freyr5736/coding/esp32/s3_bootloader/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
+		},
+		{
+			"file" : "/home/freyr5736/coding/esp32/s3_bootloader/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
+		},
+		{
+			"file" : "/home/freyr5736/coding/esp32/s3_bootloader/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
+		},
+		{
+			"file" : "/home/freyr5736/coding/esp32/s3_bootloader/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
+		},
+		{
+			"file" : "/home/freyr5736/coding/esp32/s3_bootloader/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
+		},
+		{
+			"file" : "/home/freyr5736/coding/esp32/s3_bootloader/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"bootloader"
+		],
+		"name" : "bootloader"
+	}
+}

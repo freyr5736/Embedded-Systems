@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libesp_security.a CMakeFiles/__idf_esp_security.dir/src/init.c.obj CMakeFiles/__idf_esp_security.dir/src/esp_hmac.c.obj CMakeFiles/__idf_esp_security.dir/src/esp_ds.c.obj CMakeFiles/__idf_esp_security.dir/src/esp_crypto_lock.c.obj CMakeFiles/__idf_esp_security.dir/src/esp_crypto_periph_clk.c.obj CMakeFiles/__idf_esp_security.dir/src/esp32s3/esp_crypto_clk.c.obj CMakeFiles/__idf_esp_security.dir/__/__/esp_err_codes/esp_security_esp_err_codes.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libesp_security.a

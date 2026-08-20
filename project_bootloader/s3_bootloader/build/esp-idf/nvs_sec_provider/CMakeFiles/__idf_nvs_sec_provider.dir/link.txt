@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libnvs_sec_provider.a CMakeFiles/__idf_nvs_sec_provider.dir/nvs_sec_provider.c.obj CMakeFiles/__idf_nvs_sec_provider.dir/__/__/esp_err_codes/nvs_sec_provider_esp_err_codes.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libnvs_sec_provider.a

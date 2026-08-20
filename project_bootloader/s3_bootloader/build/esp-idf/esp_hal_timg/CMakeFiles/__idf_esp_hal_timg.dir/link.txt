@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libesp_hal_timg.a CMakeFiles/__idf_esp_hal_timg.dir/timer_hal.c.obj CMakeFiles/__idf_esp_hal_timg.dir/esp32s3/timer_periph.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libesp_hal_timg.a

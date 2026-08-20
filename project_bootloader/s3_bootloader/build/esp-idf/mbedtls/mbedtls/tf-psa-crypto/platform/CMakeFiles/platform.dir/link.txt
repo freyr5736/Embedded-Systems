@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libplatform.a CMakeFiles/platform.dir/memory_buffer_alloc.c.obj CMakeFiles/platform.dir/platform.c.obj CMakeFiles/platform.dir/platform_util.c.obj CMakeFiles/platform.dir/threading.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libplatform.a

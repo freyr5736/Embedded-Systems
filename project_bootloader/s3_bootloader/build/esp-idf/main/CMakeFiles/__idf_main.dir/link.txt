@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libmain.a CMakeFiles/__idf_main.dir/main.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libmain.a

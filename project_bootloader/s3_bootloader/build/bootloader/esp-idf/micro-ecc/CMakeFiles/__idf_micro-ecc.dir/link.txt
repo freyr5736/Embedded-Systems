@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libmicro-ecc.a "CMakeFiles/__idf_micro-ecc.dir/uECC_verify_antifault.c.obj"
+xtensa-esp32s3-elf-gcc-ranlib libmicro-ecc.a

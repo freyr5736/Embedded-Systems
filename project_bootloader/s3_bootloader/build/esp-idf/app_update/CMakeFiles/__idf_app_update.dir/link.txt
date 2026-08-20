@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libapp_update.a CMakeFiles/__idf_app_update.dir/esp_ota_ops.c.obj CMakeFiles/__idf_app_update.dir/__/__/esp_err_codes/app_update_esp_err_codes.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libapp_update.a

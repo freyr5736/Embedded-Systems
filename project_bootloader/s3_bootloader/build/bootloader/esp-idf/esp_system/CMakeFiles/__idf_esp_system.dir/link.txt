@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libesp_system.a CMakeFiles/__idf_esp_system.dir/esp_err.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libesp_system.a

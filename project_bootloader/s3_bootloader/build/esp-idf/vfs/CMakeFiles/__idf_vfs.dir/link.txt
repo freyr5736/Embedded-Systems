@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libvfs.a CMakeFiles/__idf_vfs.dir/vfs.c.obj CMakeFiles/__idf_vfs.dir/vfs_calls.c.obj CMakeFiles/__idf_vfs.dir/vfs_eventfd.c.obj CMakeFiles/__idf_vfs.dir/vfs_semihost.c.obj CMakeFiles/__idf_vfs.dir/nullfs.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libvfs.a

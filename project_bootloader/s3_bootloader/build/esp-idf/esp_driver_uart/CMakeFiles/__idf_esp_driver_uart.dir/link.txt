@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libesp_driver_uart.a CMakeFiles/__idf_esp_driver_uart.dir/src/uart.c.obj CMakeFiles/__idf_esp_driver_uart.dir/src/uart_wakeup.c.obj CMakeFiles/__idf_esp_driver_uart.dir/src/uhci.c.obj CMakeFiles/__idf_esp_driver_uart.dir/src/uart_vfs.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libesp_driver_uart.a

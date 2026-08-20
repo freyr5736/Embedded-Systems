@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libesp_hal_twai.a CMakeFiles/__idf_esp_hal_twai.dir/esp32s3/twai_periph.c.obj CMakeFiles/__idf_esp_hal_twai.dir/twai_hal_v1.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libesp_hal_twai.a

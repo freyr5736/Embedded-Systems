@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libesp_timer.a CMakeFiles/__idf_esp_timer.dir/src/esp_timer.c.obj CMakeFiles/__idf_esp_timer.dir/src/esp_timer_init.c.obj CMakeFiles/__idf_esp_timer.dir/src/system_time.c.obj CMakeFiles/__idf_esp_timer.dir/src/esp_timer_impl_common.c.obj CMakeFiles/__idf_esp_timer.dir/src/esp_timer_impl_systimer.c.obj CMakeFiles/__idf_esp_timer.dir/src/ets_timer_legacy.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libesp_timer.a

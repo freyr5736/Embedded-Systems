@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libcmock.a CMakeFiles/__idf_cmock.dir/CMock/src/cmock.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libcmock.a

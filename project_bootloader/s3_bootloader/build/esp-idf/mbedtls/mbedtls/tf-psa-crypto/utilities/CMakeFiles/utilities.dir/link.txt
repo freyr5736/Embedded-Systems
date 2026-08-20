@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libutilities.a CMakeFiles/utilities.dir/asn1parse.c.obj CMakeFiles/utilities.dir/asn1write.c.obj CMakeFiles/utilities.dir/base64.c.obj CMakeFiles/utilities.dir/constant_time.c.obj CMakeFiles/utilities.dir/oid.c.obj CMakeFiles/utilities.dir/pem.c.obj CMakeFiles/utilities.dir/pkcs5.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libutilities.a

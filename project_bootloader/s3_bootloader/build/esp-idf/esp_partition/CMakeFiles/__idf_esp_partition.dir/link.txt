@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libesp_partition.a CMakeFiles/__idf_esp_partition.dir/partition.c.obj CMakeFiles/__idf_esp_partition.dir/partition_target.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libesp_partition.a

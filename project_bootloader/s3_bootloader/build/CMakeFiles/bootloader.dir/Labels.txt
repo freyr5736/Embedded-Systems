@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/home/freyr5736/coding/esp32/s3_bootloader/build/CMakeFiles/bootloader
+/home/freyr5736/coding/esp32/s3_bootloader/build/CMakeFiles/bootloader.rule
+/home/freyr5736/coding/esp32/s3_bootloader/build/CMakeFiles/bootloader-complete.rule
+/home/freyr5736/coding/esp32/s3_bootloader/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/home/freyr5736/coding/esp32/s3_bootloader/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/freyr5736/coding/esp32/s3_bootloader/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/freyr5736/coding/esp32/s3_bootloader/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/freyr5736/coding/esp32/s3_bootloader/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/freyr5736/coding/esp32/s3_bootloader/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/freyr5736/coding/esp32/s3_bootloader/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libcxx.a CMakeFiles/__idf_cxx.dir/cxx_exception_stubs.cpp.obj CMakeFiles/__idf_cxx.dir/cxx_guards.cpp.obj CMakeFiles/__idf_cxx.dir/cxx_init.cpp.obj
+xtensa-esp32s3-elf-gcc-ranlib libcxx.a

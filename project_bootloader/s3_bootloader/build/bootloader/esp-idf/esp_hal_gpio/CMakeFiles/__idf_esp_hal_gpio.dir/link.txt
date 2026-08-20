@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libesp_hal_gpio.a CMakeFiles/__idf_esp_hal_gpio.dir/gpio_hal.c.obj CMakeFiles/__idf_esp_hal_gpio.dir/rtc_io_hal.c.obj CMakeFiles/__idf_esp_hal_gpio.dir/esp32s3/rtc_io_periph.c.obj CMakeFiles/__idf_esp_hal_gpio.dir/esp32s3/dedic_gpio_periph.c.obj CMakeFiles/__idf_esp_hal_gpio.dir/sdm_hal.c.obj CMakeFiles/__idf_esp_hal_gpio.dir/esp32s3/sdm_periph.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libesp_hal_gpio.a

@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libspi_flash.a CMakeFiles/__idf_spi_flash.dir/spi_flash_wrap.c.obj CMakeFiles/__idf_spi_flash.dir/__/__/esp_err_codes/spi_flash_esp_err_codes.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libspi_flash.a

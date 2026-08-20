@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libsdmmc.a CMakeFiles/__idf_sdmmc.dir/sdmmc_cmd.c.obj CMakeFiles/__idf_sdmmc.dir/sdmmc_common.c.obj CMakeFiles/__idf_sdmmc.dir/sdmmc_init.c.obj CMakeFiles/__idf_sdmmc.dir/sdmmc_mmc.c.obj CMakeFiles/__idf_sdmmc.dir/sdmmc_sd.c.obj CMakeFiles/__idf_sdmmc.dir/sdmmc_blockdev.c.obj CMakeFiles/__idf_sdmmc.dir/sd_pwr_ctrl/sd_pwr_ctrl.c.obj CMakeFiles/__idf_sdmmc.dir/sdmmc_io.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libsdmmc.a

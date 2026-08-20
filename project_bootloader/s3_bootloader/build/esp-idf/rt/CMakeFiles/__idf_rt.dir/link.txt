@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc librt.a CMakeFiles/__idf_rt.dir/FreeRTOS_POSIX_mqueue.c.obj CMakeFiles/__idf_rt.dir/FreeRTOS_POSIX_utils.c.obj
+xtensa-esp32s3-elf-gcc-ranlib librt.a

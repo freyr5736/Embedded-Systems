@@ -1,0 +1,33 @@
+esp-idf/esp_hal_rmt/CMakeFiles/__idf_esp_hal_rmt.dir/rmt_hal.c.obj: \
+ /home/freyr5736/coding/esp32/esp-idf/components/esp_hal_rmt/rmt_hal.c \
+ /home/freyr5736/coding/esp32/esp-idf/components/esp_hal_rmt/include/hal/rmt_hal.h \
+ /home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/picolibc/include/stdint.h \
+ /home/freyr5736/coding/esp32/esp-idf/components/esp_libc/platform_include/sys/cdefs.h \
+ /home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/picolibc/include/sys/cdefs.h \
+ /home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/picolibc/include/sys/config.h \
+ /home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/picolibc/include/machine/ieeefp.h \
+ /home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/picolibc/include/sys/features.h \
+ /home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/picolibc/include/picolibc.h \
+ /home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/picolibc/include/machine/_default_types.h \
+ /home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/lib/gcc/xtensa-esp-elf/16.1.0/include/stddef.h \
+ /home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/picolibc/include/sys/_stdint.h \
+ /home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/picolibc/include/sys/_intsup.h \
+ /home/freyr5736/coding/esp32/esp-idf/components/esp_hal_rmt/esp32s3/include/hal/rmt_ll.h \
+ /home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/lib/gcc/xtensa-esp-elf/16.1.0/include/stdbool.h \
+ /home/freyr5736/coding/esp32/esp-idf/components/hal/platform_port/include/hal/misc.h \
+ /home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/picolibc/include/string.h \
+ /home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/picolibc/include/sys/_locale.h \
+ /home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/picolibc/include/strings.h \
+ /home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/picolibc/include/sys/_types.h \
+ /home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/picolibc/include/machine/_types.h \
+ /home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/picolibc/include/sys/string.h \
+ /home/freyr5736/coding/esp32/esp-idf/components/hal/platform_port/include/hal/assert.h \
+ /home/freyr5736/coding/esp32/esp-idf/components/soc/esp32s3/register/soc/rmt_struct.h \
+ /home/freyr5736/coding/esp32/esp-idf/components/soc/esp32s3/register/soc/system_struct.h \
+ /home/freyr5736/coding/esp32/esp-idf/components/esp_hal_rmt/include/hal/rmt_types.h \
+ /home/freyr5736/coding/esp32/esp-idf/components/soc/esp32s3/include/soc/clk_tree_defs.h \
+ /home/freyr5736/coding/esp32/esp-idf/components/soc/esp32s3/include/soc/soc_caps.h \
+ /home/freyr5736/coding/esp32/esp-idf/components/soc/include/soc/soc_caps_eval.h \
+ /home/freyr5736/coding/esp32/s3_bootloader/build/config/libc/picolibc/newlib/compatibility.cdep \
+ /home/freyr5736/coding/esp32/s3_bootloader/build/config/libc/picolibc.cdep \
+ /home/freyr5736/coding/esp32/s3_bootloader/build/config/hal/default/assertion/level.cdep

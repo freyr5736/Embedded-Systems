@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libesp_common.a CMakeFiles/__idf_esp_common.dir/src/esp_err_to_name.c.obj CMakeFiles/__idf_esp_common.dir/__/__/esp_err_codes/esp_common_esp_err_codes.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libesp_common.a

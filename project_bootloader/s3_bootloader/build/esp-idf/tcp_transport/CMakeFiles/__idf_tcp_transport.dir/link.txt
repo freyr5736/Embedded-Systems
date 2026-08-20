@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libtcp_transport.a CMakeFiles/__idf_tcp_transport.dir/transport.c.obj CMakeFiles/__idf_tcp_transport.dir/transport_ssl.c.obj CMakeFiles/__idf_tcp_transport.dir/transport_internal.c.obj CMakeFiles/__idf_tcp_transport.dir/transport_socks_proxy.c.obj CMakeFiles/__idf_tcp_transport.dir/transport_ws.c.obj CMakeFiles/__idf_tcp_transport.dir/__/__/esp_err_codes/tcp_transport_esp_err_codes.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libtcp_transport.a

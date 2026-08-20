@@ -1,0 +1,2 @@
+Command: make -j 14 all
+/home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/xtensa-esp-elf/bin/ld: warning: cannot find entry symbol call_start_cpu0; not setting start address

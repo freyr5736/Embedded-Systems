@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libesp_app_format.a CMakeFiles/__idf_esp_app_format.dir/esp_app_desc.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libesp_app_format.a

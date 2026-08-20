@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libesp_hal_usb.a CMakeFiles/__idf_esp_hal_usb.dir/usb_dwc_hal.c.obj CMakeFiles/__idf_esp_hal_usb.dir/esp32s3/usb_dwc_periph.c.obj CMakeFiles/__idf_esp_hal_usb.dir/usb_wrap_hal.c.obj CMakeFiles/__idf_esp_hal_usb.dir/usb_serial_jtag_hal.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libesp_hal_usb.a

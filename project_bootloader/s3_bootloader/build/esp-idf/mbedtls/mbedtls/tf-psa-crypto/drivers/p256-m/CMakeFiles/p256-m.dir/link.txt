@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libp256-m.a "CMakeFiles/p256-m.dir/p256-m_driver_entrypoints.c.obj" "CMakeFiles/p256-m.dir/p256-m/p256-m.c.obj"
+xtensa-esp32s3-elf-gcc-ranlib libp256-m.a

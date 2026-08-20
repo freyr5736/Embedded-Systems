@@ -1,0 +1,2 @@
+source /home/freyr5736/coding/esp32/s3_bootloader/build/bootloader/gdbinit/symbols
+source /home/freyr5736/coding/esp32/s3_bootloader/build/bootloader/gdbinit/connect

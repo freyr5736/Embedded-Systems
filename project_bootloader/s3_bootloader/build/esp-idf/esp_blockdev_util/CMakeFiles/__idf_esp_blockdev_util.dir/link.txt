@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libesp_blockdev_util.a CMakeFiles/__idf_esp_blockdev_util.dir/generic_partition.c.obj CMakeFiles/__idf_esp_blockdev_util.dir/memory.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libesp_blockdev_util.a

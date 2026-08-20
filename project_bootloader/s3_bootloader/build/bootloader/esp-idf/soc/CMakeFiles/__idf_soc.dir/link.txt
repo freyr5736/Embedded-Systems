@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libsoc.a CMakeFiles/__idf_soc.dir/lldesc.c.obj CMakeFiles/__idf_soc.dir/dport_access_common.c.obj CMakeFiles/__idf_soc.dir/esp32s3/interrupts.c.obj CMakeFiles/__idf_soc.dir/esp32s3/gpio_periph.c.obj CMakeFiles/__idf_soc.dir/esp32s3/mpi_periph.c.obj CMakeFiles/__idf_soc.dir/esp32s3/power_supply_periph.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libsoc.a

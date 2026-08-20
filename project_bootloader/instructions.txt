@@ -1,0 +1,18 @@
+
+Directory 
+    cd ~/coding/esp32/s3_bootloader
+
+Build the code
+    idf.py build
+
+Flash to ESP32
+    idf.py -p /dev/ttyACM0 flash
+
+Seriel Monitor
+    idf.py -p /dev/ttyACM0 monitor
+
+Macro
+idf.py build flash monitor
+
+To Kill
+    Ctrl + ]

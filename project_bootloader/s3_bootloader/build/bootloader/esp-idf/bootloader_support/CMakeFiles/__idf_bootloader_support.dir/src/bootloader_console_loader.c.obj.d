@@ -1,0 +1,28 @@
+esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_console_loader.c.obj: \
+ /home/freyr5736/coding/esp32/esp-idf/components/bootloader_support/src/bootloader_console_loader.c \
+ /home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/picolibc/include/stdint.h \
+ /home/freyr5736/coding/esp32/esp-idf/components/esp_libc/platform_include/sys/cdefs.h \
+ /home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/picolibc/include/sys/cdefs.h \
+ /home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/picolibc/include/sys/config.h \
+ /home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/picolibc/include/machine/ieeefp.h \
+ /home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/picolibc/include/sys/features.h \
+ /home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/picolibc/include/picolibc.h \
+ /home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/picolibc/include/machine/_default_types.h \
+ /home/freyr5736/coding/esp32/s3_bootloader/build/bootloader/config/sdkconfig.h \
+ /home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/lib/gcc/xtensa-esp-elf/16.1.0/include/stddef.h \
+ /home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/picolibc/include/sys/_stdint.h \
+ /home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/picolibc/include/sys/_intsup.h \
+ /home/freyr5736/coding/esp32/esp-idf/components/bootloader_support/private_include/bootloader_console.h \
+ /home/freyr5736/coding/esp32/esp-idf/components/esp_rom/include/esp_rom_serial_output.h \
+ /home/freyr5736/coding/esp32/esp-idf/components/esp_rom/include/esp_rom_sys.h \
+ /home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/lib/gcc/xtensa-esp-elf/16.1.0/include/stdbool.h \
+ /home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/picolibc/include/inttypes.h \
+ /home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/picolibc/include/sys/_locale.h \
+ /home/freyr5736/.espressif/tools/xtensa-esp-elf/esp-16.1.0_20260609/xtensa-esp-elf/lib/gcc/xtensa-esp-elf/16.1.0/include/stdarg.h \
+ /home/freyr5736/coding/esp32/esp-idf/components/soc/esp32s3/include/soc/reset_reasons.h \
+ /home/freyr5736/coding/esp32/esp-idf/components/soc/esp32s3/include/soc/soc_caps.h \
+ /home/freyr5736/coding/esp32/esp-idf/components/soc/include/soc/soc_caps_eval.h \
+ /home/freyr5736/coding/esp32/esp-idf/components/esp_rom/esp32s3/include/esp32s3/rom/usb/chip_usb_dw_wrapper.h \
+ /home/freyr5736/coding/esp32/esp-idf/components/esp_rom/esp32s3/include/esp32s3/rom/usb/usb_dc.h \
+ /home/freyr5736/coding/esp32/esp-idf/components/esp_rom/esp32s3/include/esp32s3/rom/usb/cdc_acm.h \
+ /home/freyr5736/coding/esp32/esp-idf/components/esp_rom/esp32s3/include/esp32s3/rom/usb/usb_persist.h

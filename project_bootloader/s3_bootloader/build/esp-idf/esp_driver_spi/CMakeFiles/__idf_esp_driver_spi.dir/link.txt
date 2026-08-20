@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libesp_driver_spi.a CMakeFiles/__idf_esp_driver_spi.dir/src/gpspi/spi_common.c.obj CMakeFiles/__idf_esp_driver_spi.dir/src/gpspi/spi_master.c.obj CMakeFiles/__idf_esp_driver_spi.dir/src/gpspi/spi_slave.c.obj CMakeFiles/__idf_esp_driver_spi.dir/src/gpspi/spi_slave_hd.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libesp_driver_spi.a

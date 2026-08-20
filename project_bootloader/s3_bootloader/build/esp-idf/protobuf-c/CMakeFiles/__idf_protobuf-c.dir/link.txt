@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libprotobuf-c.a "CMakeFiles/__idf_protobuf-c.dir/protobuf-c/protobuf-c/protobuf-c.c.obj"
+xtensa-esp32s3-elf-gcc-ranlib libprotobuf-c.a

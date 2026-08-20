@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libpqcp.a CMakeFiles/pqcp.dir/src/psa_crypto_mldsa.c.obj CMakeFiles/pqcp.dir/src/wrap_mldsa_native.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libpqcp.a

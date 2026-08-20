@@ -1,0 +1,18 @@
+Command: make -j 14 flash
+[1;31m
+A fatal error occurred: Could not open /dev/ttyACM0, the port is busy or doesn't exist.
+([Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0')
+
+Hint: Check if the port is correct and ESP connected
+[0m
+[31mCMake Error at /home/freyr5736/coding/esp32/esp-idf/components/esptool_py/run_serial_tool.cmake:142 (message):
+  
+  /home/freyr5736/.espressif/python_env/idf6.2_py3.13_env/bin/python;-m;esptool;--chip;esp32s3
+  failed.
+
+
+[0m
+make[3]: *** [CMakeFiles/flash.dir/build.make:70: flash] Error 1
+make[2]: *** [CMakeFiles/Makefile2:3325: CMakeFiles/flash.dir/all] Error 2
+make[1]: *** [CMakeFiles/Makefile2:3332: CMakeFiles/flash.dir/rule] Error 2
+make: *** [Makefile:234: flash] Error 2

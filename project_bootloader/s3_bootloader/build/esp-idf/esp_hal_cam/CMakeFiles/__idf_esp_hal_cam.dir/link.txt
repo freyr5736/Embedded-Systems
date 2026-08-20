@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libesp_hal_cam.a CMakeFiles/__idf_esp_hal_cam.dir/cam_hal.c.obj CMakeFiles/__idf_esp_hal_cam.dir/esp32s3/cam_periph.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libesp_hal_cam.a

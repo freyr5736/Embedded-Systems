@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libesp_hal_touch_sens.a CMakeFiles/__idf_esp_hal_touch_sens.dir/esp32s3/touch_sensor_legacy_hal.c.obj CMakeFiles/__idf_esp_hal_touch_sens.dir/touch_sensor_legacy_hal.c.obj CMakeFiles/__idf_esp_hal_touch_sens.dir/touch_sens_hal.c.obj CMakeFiles/__idf_esp_hal_touch_sens.dir/esp32s3/touch_sensor_periph.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libesp_hal_touch_sens.a

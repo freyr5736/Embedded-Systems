@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libesp_pm.a CMakeFiles/__idf_esp_pm.dir/pm_locks.c.obj CMakeFiles/__idf_esp_pm.dir/pm_trace.c.obj CMakeFiles/__idf_esp_pm.dir/pm_impl.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libesp_pm.a

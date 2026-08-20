@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libesp_hal_pcnt.a CMakeFiles/__idf_esp_hal_pcnt.dir/pcnt_hal.c.obj CMakeFiles/__idf_esp_hal_pcnt.dir/esp32s3/pcnt_periph.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libesp_hal_pcnt.a

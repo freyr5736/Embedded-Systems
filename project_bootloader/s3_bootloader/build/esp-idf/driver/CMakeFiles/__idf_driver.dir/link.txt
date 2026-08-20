@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libdriver.a CMakeFiles/__idf_driver.dir/i2c/i2c.c.obj CMakeFiles/__idf_driver.dir/touch_sensor/touch_sensor_common.c.obj CMakeFiles/__idf_driver.dir/touch_sensor/esp32s3/touch_sensor.c.obj CMakeFiles/__idf_driver.dir/twai/twai.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libdriver.a

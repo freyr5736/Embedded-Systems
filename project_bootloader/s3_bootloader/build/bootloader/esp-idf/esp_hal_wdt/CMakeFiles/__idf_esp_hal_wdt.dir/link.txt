@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libesp_hal_wdt.a CMakeFiles/__idf_esp_hal_wdt.dir/esp32s3/mwdt_periph.c.obj CMakeFiles/__idf_esp_hal_wdt.dir/rom_patch.c.obj CMakeFiles/__idf_esp_hal_wdt.dir/xt_wdt_hal.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libesp_hal_wdt.a

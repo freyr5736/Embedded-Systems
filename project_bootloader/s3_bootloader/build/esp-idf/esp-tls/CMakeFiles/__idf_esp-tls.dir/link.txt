@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libesp-tls.a "CMakeFiles/__idf_esp-tls.dir/esp_tls.c.obj" "CMakeFiles/__idf_esp-tls.dir/esp-tls-crypto/esp_tls_crypto.c.obj" "CMakeFiles/__idf_esp-tls.dir/esp_tls_error_capture.c.obj" "CMakeFiles/__idf_esp-tls.dir/esp_tls_platform_port.c.obj" "CMakeFiles/__idf_esp-tls.dir/esp_tls_mbedtls.c.obj" "CMakeFiles/__idf_esp-tls.dir/__/__/esp_err_codes/esp-tls_esp_err_codes.c.obj"
+xtensa-esp32s3-elf-gcc-ranlib libesp-tls.a

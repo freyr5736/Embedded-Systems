@@ -1,0 +1,2 @@
+xtensa-esp32s3-elf-gcc-ar qc libmbedx509.a CMakeFiles/mbedx509.dir/error.c.obj CMakeFiles/mbedx509.dir/mbedtls_config.c.obj CMakeFiles/mbedx509.dir/pkcs7.c.obj CMakeFiles/mbedx509.dir/x509.c.obj CMakeFiles/mbedx509.dir/x509_create.c.obj CMakeFiles/mbedx509.dir/x509_crl.c.obj CMakeFiles/mbedx509.dir/x509_crt.c.obj CMakeFiles/mbedx509.dir/x509_csr.c.obj CMakeFiles/mbedx509.dir/x509_oid.c.obj CMakeFiles/mbedx509.dir/x509write.c.obj CMakeFiles/mbedx509.dir/x509write_crt.c.obj CMakeFiles/mbedx509.dir/x509write_csr.c.obj
+xtensa-esp32s3-elf-gcc-ranlib libmbedx509.a
